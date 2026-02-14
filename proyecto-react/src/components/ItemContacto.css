@@ -5,6 +5,7 @@
   background: #f8f9fa;
   border-radius: 12px;
   transition: transform 0.2s, box-shadow 0.2s;
+  gap: 12px;
 }
 
 .item-contacto:hover {
@@ -15,6 +16,7 @@
 .avatar-contacto {
   width: 50px;
   height: 50px;
+  min-width: 50px;
   border-radius: 50%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -23,23 +25,30 @@
   justify-content: center;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-right: 15px;
   flex-shrink: 0;
 }
 
 .info-contacto {
   flex: 1;
+  min-width: 0; /* Permite que el texto se trunque si es necesario */
+  overflow: hidden;
 }
 
 .info-contacto h3 {
   color: #333;
   margin-bottom: 5px;
   font-size: 1.1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .info-contacto p {
   color: #666;
   font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .boton-eliminar {
@@ -47,11 +56,16 @@
   border: none;
   width: 40px;
   height: 40px;
+  min-width: 40px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1.2rem;
   transition: transform 0.2s, background 0.2s;
   flex-shrink: 0;
+  touch-action: manipulation;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .boton-eliminar:hover {
@@ -61,4 +75,102 @@
 
 .boton-eliminar:active {
   transform: scale(0.95);
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .item-contacto {
+    padding: 12px;
+    border-radius: 10px;
+    gap: 10px;
+  }
+
+  .avatar-contacto {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 1.3rem;
+  }
+
+  .info-contacto h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .info-contacto p {
+    font-size: 0.9rem;
+  }
+
+  .boton-eliminar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .item-contacto {
+    padding: 10px;
+    border-radius: 8px;
+    gap: 8px;
+  }
+
+  .item-contacto:hover {
+    transform: none; /* Desactiva el efecto hover en móviles */
+  }
+
+  .avatar-contacto {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1.2rem;
+  }
+
+  .info-contacto h3 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+  }
+
+  .info-contacto p {
+    font-size: 0.85rem;
+  }
+
+  .boton-eliminar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+  .item-contacto {
+    padding: 8px;
+  }
+
+  .avatar-contacto {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    font-size: 1rem;
+  }
+
+  .info-contacto h3 {
+    font-size: 0.9rem;
+  }
+
+  .info-contacto p {
+    font-size: 0.8rem;
+  }
+
+  .boton-eliminar {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.9rem;
+  }
 }

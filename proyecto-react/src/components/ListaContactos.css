@@ -7,17 +7,46 @@
 .cuadricula-contactos {
   display: grid;
   gap: 15px;
+  grid-template-columns: 1fr;
 }
 
 .mensaje-vacio {
   text-align: center;
   color: #999;
-  padding: 40px;
+  padding: 40px 20px;
   font-size: 1.1rem;
 }
 
+/* Tablets */
 @media (max-width: 768px) {
+  .lista-contactos h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .cuadricula-contactos {
+    gap: 12px;
+  }
+
+  .mensaje-vacio {
+    padding: 30px 15px;
+    font-size: 1rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .lista-contactos h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
   .cuadricula-contactos {
     gap: 10px;
+  }
+
+  .mensaje-vacio {
+    padding: 25px 10px;
+    font-size: 0.95rem;
   }
 }

@@ -1,5 +1,5 @@
 .formulario-contacto {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 2px solid #f0f0f0;
 }
@@ -21,6 +21,8 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .input-formulario:focus {
@@ -30,7 +32,7 @@
 
 .boton-agregar {
   width: 100%;
-  padding: 12px;
+  padding: 14px 12px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
@@ -39,6 +41,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  touch-action: manipulation;
 }
 
 .boton-agregar:hover {
@@ -48,4 +51,56 @@
 
 .boton-agregar:active {
   transform: translateY(0);
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .formulario-contacto {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+  }
+
+  .formulario-contacto h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .input-formulario {
+    padding: 12px;
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+
+  .boton-agregar {
+    padding: 13px;
+    font-size: 1rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .formulario-contacto {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .formulario-contacto h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .grupo-formulario {
+    margin-bottom: 12px;
+  }
+
+  .input-formulario {
+    padding: 11px 12px;
+    font-size: 16px; /* Importante: evita zoom en iOS */
+    border-radius: 6px;
+  }
+
+  .boton-agregar {
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+  }
 }

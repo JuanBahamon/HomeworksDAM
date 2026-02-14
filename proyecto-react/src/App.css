@@ -1,42 +1,112 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-encabezado {
   text-align: center;
+  color: white;
+  margin-bottom: 1.875rem;
+  width: 100%;
+  max-width: 800px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App-encabezado h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  word-wrap: break-word;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.App-contenido {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.875rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .App {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .App-contenido {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+  
+  .App-encabezado {
+    margin-bottom: 1.25rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Móviles - Pantalla Completa */
+@media screen and (max-width: 480px) {
+  body {
+    background: white;
+  }
+
+  .App {
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .App-encabezado {
+    margin-bottom: 0;
+    padding: 1.25rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0;
+  }
+
+  .App-encabezado h1 {
+    font-size: clamp(1.375rem, 6vw, 1.75rem);
+  }
+
+  .App-contenido {
+    padding: 1.25rem 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: calc(100vh - 80px);
   }
 }
 
-.card {
-  padding: 2em;
-}
+/* Móviles pequeños */
+@media screen and (max-width: 360px) {
+  .App-encabezado {
+    padding: 1rem 0.75rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .App-contenido {
+    padding: 1rem 0.75rem;
+  }
 }
