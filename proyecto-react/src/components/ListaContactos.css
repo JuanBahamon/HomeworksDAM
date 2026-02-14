@@ -1,0 +1,23 @@
+.lista-contactos h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.cuadricula-contactos {
+  display: grid;
+  gap: 15px;
+}
+
+.mensaje-vacio {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .cuadricula-contactos {
+    gap: 10px;
+  }
+}

@@ -8,7 +8,6 @@ function FormularioContacto({ alAgregarContacto }) {
   const manejarEnvio = (e) => {
     e.preventDefault();
     
-    // Validación simple
     if (!nombre.trim() || !telefono.trim()) {
       alert('Por favor completa todos los campos');
       return;
@@ -16,7 +15,6 @@ function FormularioContacto({ alAgregarContacto }) {
 
     alAgregarContacto(nombre, telefono);
     
-    // Limpiar el formulario
     setNombre('');
     setTelefono('');
   };
