@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import {
+  IonApp,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonPage,
+  setupIonicReact
+} from '@ionic/react';
+
+/* Ionic CSS */
+import '@ionic/react/css/core.css';
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+
 import Imagen2 from './assets/imagen2.jpg';
 import ListaContactos from './components/ListaContactos';
 import FormularioContacto from './components/FormularioContacto';
 import Cargador from './components/Cargador';
-import './App.css';
+
+setupIonicReact();
 
 const contactosIniciales = [
   { id: 1, nombre: 'Juan Pérez', telefono: '3001234567' },
@@ -22,16 +39,11 @@ function App() {
       setContactos(contactosIniciales);
       setCargando(false);
     };
-
     cargarContactos();
   }, []);
 
   const agregarContacto = (nombre, telefono) => {
-    const nuevoContacto = {
-      id: Date.now(),
-      nombre,
-      telefono
-    };
+    const nuevoContacto = { id: Date.now(), nombre, telefono };
     setContactos([...contactos, nuevoContacto]);
   };
 
@@ -40,24 +52,32 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-encabezado">
-        <img src={Imagen2} alt="Logo App" width="120" />
-        <h1>Gestión de Contactos</h1>
-      </header>
+    <IonApp>
+      <IonPage>
+        <IonHeader>
+          <IonToolbar color="primary">
+            <div style={{ display: 'flex', alignItems: 'center', padding: '8px 16px', gap: '12px' }}>
+              <img src={Imagen2} alt="Logo App" width="40" style={{ borderRadius: '50%' }} />
+              <IonTitle>Gestión de Contactos</IonTitle>
+            </div>
+          </IonToolbar>
+        </IonHeader>
 
-      {cargando ? (
-        <Cargador />
-      ) : (
-        <div className="App-contenido">
-          <FormularioContacto alAgregarContacto={agregarContacto} />
-          <ListaContactos 
-            contactos={contactos} 
-            alEliminarContacto={eliminarContacto} 
-          />
-        </div>
-      )}
-    </div>
+        <IonContent className="ion-padding">
+          {cargando ? (
+            <Cargador />
+          ) : (
+            <>
+              <FormularioContacto alAgregarContacto={agregarContacto} />
+              <ListaContactos
+                contactos={contactos}
+                alEliminarContacto={eliminarContacto}
+              />
+            </>
+          )}
+        </IonContent>
+      </IonPage>
+    </IonApp>
   );
 }
 

@@ -1,0 +1,7 @@
+{
+  "name": "proyecto-react-migrado",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
