@@ -1,0 +1,7 @@
+{
+  "name": "Demo-Login-Page",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
