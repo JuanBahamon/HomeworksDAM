@@ -1,0 +1,7 @@
+{
+  "name": "parcial-1-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
