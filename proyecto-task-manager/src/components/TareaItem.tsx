@@ -1,6 +1,7 @@
 import React from 'react';
 import { IonItem, IonLabel, IonCheckbox, IonButton, IonIcon } from '@ionic/react';
 import { trashOutline } from 'ionicons/icons';
+import { useHistory } from 'react-router-dom';
 import { Tarea } from '../models/tarea';
 
 interface Props {
@@ -10,6 +11,8 @@ interface Props {
 }
 
 const TareaItem: React.FC<Props> = ({ tarea, alCompletar, alEliminar }) => {
+  const historial = useHistory();
+
   return (
     <IonItem>
       <IonCheckbox
@@ -17,7 +20,13 @@ const TareaItem: React.FC<Props> = ({ tarea, alCompletar, alEliminar }) => {
         checked={tarea.completada}
         onIonChange={() => alCompletar(tarea.id)}
       />
-      <IonLabel style={{ textDecoration: tarea.completada ? 'line-through' : 'none' }}>
+      <IonLabel
+        style={{ textDecoration: tarea.completada ? 'line-through' : 'none', cursor: 'pointer' }}
+        onClick={(e) => {
+          e.stopPropagation();
+          historial.replace(`/tareas/detalle/${tarea.id}`);
+        }}
+      >
         {tarea.titulo}
       </IonLabel>
       <IonButton
