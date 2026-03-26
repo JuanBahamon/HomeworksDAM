@@ -1,52 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
-  IonPage, IonHeader, IonToolbar, IonTitle,
-  IonContent
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+  IonButtons,
+  useIonViewWillEnter
 } from '@ionic/react';
-import { Tarea } from '../models/tarea';
+import { useHistory } from 'react-router-dom';
 import TareaFormulario from '../components/TareaFormulario';
 import TareaLista from '../components/TareaLista';
+import { useAuthContexto } from '../context/AuthContexto';
+import { useTareasContexto } from '../context/TareasContexto';
+import './Home.css';
 
 const Home: React.FC = () => {
-  const [tareas, setTareas] = useState<Tarea[]>([]);
+  const { cerrarSesion } = useAuthContexto();
+  const { tareas, recargarTareas, agregarTarea, completarTarea, eliminarTarea } = useTareasContexto();
+  const historial = useHistory();
 
-  // Efecto: cargar tareas del localStorage al iniciar
-  useEffect(() => {
-    const guardadas = localStorage.getItem('tareas');
-    if (guardadas) {
-      setTareas(JSON.parse(guardadas));
-    }
-  }, []);
+  useIonViewWillEnter(() => {
+    recargarTareas();
+  });
 
-  // Efecto: guardar tareas en localStorage cada vez que cambian
-  useEffect(() => {
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-  }, [tareas]);
-
-  const agregarTarea = (titulo: string) => {
-    const nuevaTarea: Tarea = {
-      id: Date.now(),
-      titulo,
-      completada: false,
-    };
-    setTareas([...tareas, nuevaTarea]);
-  };
-
-  const completarTarea = (id: number) => {
-    setTareas(tareas.map((t) =>
-      t.id === id ? { ...t, completada: !t.completada } : t
-    ));
-  };
-
-  const eliminarTarea = (id: number) => {
-    setTareas(tareas.filter((t) => t.id !== id));
+  const manejarCerrarSesion = async () => {
+    await cerrarSesion();
+    historial.replace('/login');
   };
 
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar color="primary">
+        <IonToolbar>
           <IonTitle>Mis Tareas</IonTitle>
+          <IonButtons slot="end">
+            <IonButton fill="clear" onClick={manejarCerrarSesion}>
+              Salir
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>
