@@ -4,13 +4,12 @@ import {
   IonPage, 
   IonTitle, 
   IonToolbar, 
-  IonButton, 
   IonIcon,
   IonList,
   IonItem,
   IonLabel
 } from '@ionic/react';
-import { locationOutline, cameraOutline } from 'ionicons/icons';
+import { locationOutline, cameraOutline, moveOutline, phonePortraitOutline, notificationsOutline, fingerPrintOutline} from 'ionicons/icons';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -31,12 +30,11 @@ const Home: React.FC = () => {
         <p>Selecciona un sensor para probar su funcionamiento:</p>
 
         <IonList>
-
           <IonItem button routerLink="/geolocation">
             <IonIcon slot="start" icon={locationOutline} color="primary" />
             <IonLabel>
               <h2>Geolocalización</h2>
-              <p>Obtener coordenadas GPS en tiempo real</p>
+              <p>Obtener coordenadas GPS</p>
             </IonLabel>
           </IonItem>
 
@@ -47,6 +45,32 @@ const Home: React.FC = () => {
               <p>Tomar fotos o usar la galería</p>
             </IonLabel>
           </IonItem>
+
+          <IonItem button routerLink="/motion">
+            <IonIcon slot="start" icon={moveOutline} color="tertiary" />
+            <IonLabel>
+              <h2>Acelerómetro</h2>
+              <p>Detectar movimiento y orientación</p>
+            </IonLabel>
+          </IonItem>
+
+          <IonItem button routerLink="/device">
+            <IonIcon slot="start" icon={phonePortraitOutline} color="warning" />
+            <IonLabel>
+              <h2>Información del Dispositivo</h2>
+              <p>Batería y detalles del sistema</p>
+           </IonLabel>
+          </IonItem>
+
+          <IonItem button routerLink="/haptics"><IonIcon slot="start" icon={fingerPrintOutline} color="danger" />
+            <IonLabel>Vibración</IonLabel>
+          </IonItem>
+          
+          <IonItem button routerLink="/notifications">
+            <IonIcon slot="start" icon={notificationsOutline} color="success" />
+            <IonLabel>Notificaciones</IonLabel>
+          </IonItem>
+
         </IonList>
 
         <div className="ion-margin-top" style={{ textAlign: 'center' }}>
