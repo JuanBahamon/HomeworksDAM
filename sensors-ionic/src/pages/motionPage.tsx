@@ -19,7 +19,6 @@ const MotionPage: React.FC = () => {
           <IonItem>
             <IonLabel>
               <h2>Aceleración</h2>
-              {/* Usamos ?. y || 0 para que no falle si es null */}
               <p>X: {accel?.x?.toFixed(2) || '0.00'}</p>
               <p>Y: {accel?.y?.toFixed(2) || '0.00'}</p>
               <p>Z: {accel?.z?.toFixed(2) || '0.00'}</p>
