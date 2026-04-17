@@ -6,6 +6,8 @@ import GeolocationPage from './pages/geoLocationPage';
 import CameraPage from './pages/cameraPage';
 import MotionPage from './pages/motionPage';
 import DevicePage from './pages/devicePage';
+import HapticPage from './pages/hapticPage';
+import NotificationPage from './pages/notificationPage';
 
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/palettes/dark.system.css';
@@ -35,7 +37,12 @@ const App: React.FC = () => (
         <Route exact path="/device">
           <DevicePage />
         </Route>
-
+        <Route exact path="/haptics">
+          <HapticPage />
+        </Route>
+        <Route exact path="/notifications">
+          <NotificationPage />
+        </Route>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

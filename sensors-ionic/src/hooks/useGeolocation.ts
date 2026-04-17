@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Geolocation, Position } from "@capacitor/geolocation";
+import { star } from "ionicons/icons";
 
 export const useGeolocation = () => {
   const [position, setPosition] = useState<Position['coords'] | null>(null);
@@ -13,5 +14,5 @@ export const useGeolocation = () => {
     }
   };
 
-  return { position, getCurrentLocation };
+  return { position, getCurrentLocation, startTracking: () => {}, stopTracking: () => {} };
 };
