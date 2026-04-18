@@ -1,0 +1,45 @@
+.summary-card {
+  &-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  &-stat {
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+  }
+
+  &-status {
+    margin-top: 16px;
+    text-align: center;
+  }
+}
+
+.ranking-card {
+  &-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &-content {
+    padding: 0;
+  }
+
+  &-item-me {
+    --background: var(--ion-color-primary-tint);
+    font-weight: bold;
+  }
+
+  &-medal {
+    margin-right: 12px;
+    font-size: 1.2em;
+  }
+}
+
+.back-btn {
+  margin-top: 16px;
+}
