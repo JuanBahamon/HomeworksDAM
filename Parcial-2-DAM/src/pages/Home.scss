@@ -1,0 +1,58 @@
+.progress-card {
+  &_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_points {
+    text-align: right;
+
+    h2 {
+      margin: 0;
+      color: var(--ion-color-primary);
+    }
+  }
+
+  &_title {
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &_bar {
+    margin-top: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+}
+
+.mission-card {
+  &_badge {
+    float: right;
+  }
+
+  &_photo {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  &_distance {
+    margin-top: 8px;
+  }
+
+  &_hint {
+    color: var(--ion-color-medium);
+    font-size: 0.85em;
+  }
+
+  &_timer {
+    margin-top: 8px;
+  }
+}
+
+.results-btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
