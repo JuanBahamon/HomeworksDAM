@@ -1,0 +1,7 @@
+{
+  "name": "Parcial-3-DAM",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
